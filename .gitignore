@@ -11,7 +11,7 @@ venv/
 .env.*
 
 # Firebase service account key (DO NOT COMMIT THIS)
-serviceAccountKey.json
+#serviceAccountKey.json
 
 # VS Code / PyCharm settings (if applicable)
 .vscode/
