@@ -1,6 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, firestore, initialize_app
 from fastapi import FastAPI, Header, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
