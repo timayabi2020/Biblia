@@ -22,6 +22,14 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,            # or ["*"] to allow all origins (use with caution!)
+    allow_credentials=True,
+    allow_methods=["*"],              # GET, POST, PUT, DELETE, etc.
+    allow_headers=["*"],              # Authorization, Content-Type, etc.
+)
+
 # 📦 Request model
 class StudyInput(BaseModel):
     user_id: str
