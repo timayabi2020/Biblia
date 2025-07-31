@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, initialize_app
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 from langchain_community.chat_models import ChatOpenAI
@@ -8,10 +8,14 @@ from langchain.chains import LLMChain
 from typing import List
 import ast
 import os
+import json
 
 # 🔐 Firebase setup (ensure serviceAccountKey.json is in the same folder)
-cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
+# cred = credentials.Certificate("serviceAccountKey.json")
+# firebase_admin.initialize_app(cred)
+cred_dict = json.loads(os.environ["FIREBASE_CREDENTIALS_JSON"])
+cred = credentials.Certificate(cred_dict)
+initialize_app(cred)
 db = firestore.client()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
