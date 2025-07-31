@@ -3,8 +3,8 @@ from firebase_admin import credentials, firestore
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 from langchain_community.chat_models import ChatOpenAI
-from langchain_community.prompts import PromptTemplate
-from langchain_community.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 from typing import List
 import ast
 import os
