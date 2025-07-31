@@ -2,9 +2,9 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
-from langchain-community.chat_models import ChatOpenAI
-from langchain-community.prompts import PromptTemplate
-from langchain-community.chains import LLMChain
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.prompts import PromptTemplate
+from langchain_community.chains import LLMChain
 from typing import List
 import ast
 import os
