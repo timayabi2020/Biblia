@@ -26,7 +26,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],            # or ["*"] to allow all origins (use with caution!)
-    allow_credentials=True,
+    # allow_credentials=True,
     allow_methods=["*"],              # GET, POST, PUT, DELETE, etc.
     allow_headers=["*"],              # Authorization, Content-Type, etc.
 )
@@ -93,7 +93,8 @@ async def analyze_notes(input: StudyInput, authorization: str = Header(None)):
         "user_id": input.user_id,
         "notes": input.notes,
         "summary": summary,
-        "flashcards": flashcards
+        "flashcards": flashcards,
+        "timestamp": datetime.utcnow().isoformat()
     })
 
     return {"summary": summary, "flashcards": flashcards}
