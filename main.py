@@ -111,6 +111,7 @@ async def get_user_sessions(user_id: str, authorization: str = Header(None)):
         data = doc.to_dict()
         sessions.append({
             "summary": data.get("summary", ""),
-            "flashcards": data.get("flashcards", [])
+            "flashcards": data.get("flashcards", []),
+            "timestamp": data.get("timestamp", "")
         })
     return sessions
